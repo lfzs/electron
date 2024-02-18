@@ -1,16 +1,17 @@
 {
   "scripts": {
+    "start": "node ./script/start.mjs",
     "start:vue": "vite",
-    "start:electron": "electron ./public",
-    "build:test": "vite build --mode test && node ./build.js"
+    "build:test": "node ./script/build.mjs --mode=test"
   },
   "license": "MIT",
   "devDependencies": {
     "@electron/packager": "^18.1.3",
-    "@vitejs/plugin-vue": "^5.0.3",
-    "electron": "^28.2.1",
-    "vite": "^5.0.12",
+    "@vitejs/plugin-vue": "^5.0.4",
+    "electron": "^28.2.3",
+    "minimist": "^1.2.8",
     "axios": "^1.6.7",
-    "vue": "^3.4.15"
+    "vite": "^5.1.3",
+    "vue": "^3.4.19"
   }
 }
