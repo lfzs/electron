@@ -1,4 +1,5 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, Menu } from 'electron'
+import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { join } from 'node:path'
 import axios from 'axios'
 import { pick } from 'lodash-es'
@@ -12,6 +13,7 @@ sleep(1000).then(() => {
   console.info('---------------------------')
 })
 
+app.isPackaged && Menu.setApplicationMenu(null)
 app.whenReady().then(() => {
   const win = new BrowserWindow({
     webPreferences: {
@@ -23,6 +25,7 @@ app.whenReady().then(() => {
   if (app.isPackaged) {
 
   } else { // dev 模式
+    installExtension(VUEJS_DEVTOOLS) // TODO 打开 devtool 控制台抛错
     win.webContents.openDevTools()
   }
 

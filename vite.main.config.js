@@ -14,6 +14,7 @@ export const external = [
 // electron 版本内置的 node 和 chrome 版本 https://www.electronjs.org/docs/latest/tutorial/electron-timelines
 export const TARGET_BY_ELECTRON = {
   29: ['node18.19', 'chrome122'], // 更新 electron 版本时，需手动更新
+  28: ['node18.18', 'chrome120'],
 }[devDependencies.electron.replace('^', '').split('.')[0]]
 
 // 启动 electron

@@ -2,7 +2,6 @@ import { join } from 'path'
 import fs from 'fs/promises'
 import { createServer, build } from 'vite'
 
-
 ;(async () => {
   await fs.rm('dist', { recursive: true, force: true })
   const server = await createServer({ configFile: join(process.cwd(), 'vite.renderer.config.js') })
