@@ -42,7 +42,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       mode === 'development' && {
         closeBundle() { // 重启 electron
-          ps?.kill()
+          ps?.kill('SIGTERM')
           startElectron()
         }
       }

@@ -20,7 +20,7 @@ import { build } from 'vite'
     out: join(process.cwd(), 'out'),
     name: 'cx',
     overwrite: true,
-    icon: join(process.cwd(), 'src/static/mac.icns'),
+    icon: join(process.cwd(), 'electron/static/mac.icns'),
     ignore: [
       '/electron',
       '/public',

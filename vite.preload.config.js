@@ -14,10 +14,10 @@ export default defineConfig(({ mode }) => {
         input: ['./preload/a.js'],
         output: {
           format: 'cjs',
-          // inlineDynamicImports: true,
+          inlineDynamicImports: true,
           entryFileNames: 'preload/[name].js',
-          // chunkFileNames: 'preload/[name].js',
-          // assetFileNames: 'preload/[name].[ext]',
+          chunkFileNames: 'preload/[name].js',
+          assetFileNames: 'preload/[name].[ext]',
         }
       }
     },
