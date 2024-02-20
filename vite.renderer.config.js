@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { TARGET_BY_ELECTRON } from './vite.main.config'
 
 export default defineConfig(({ mode }) => {
   return {
@@ -7,9 +8,8 @@ export default defineConfig(({ mode }) => {
     plugins: [vue()],
     build: {
       emptyOutDir: false,
-      // 也可以设置为对应的 chrome 版本。eg：Electron28 对应 chrome122
-      // https://www.electronjs.org/zh/docs/latest/tutorial/electron-timelines
-      target: 'esnext',
+      reportCompressedSize: false,
+      target: TARGET_BY_ELECTRON[1],
     },
     server: {
       host: true,

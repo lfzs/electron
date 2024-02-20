@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite'
-import { external } from './vite.main.config'
+import { external, TARGET_BY_ELECTRON } from './vite.main.config'
 
 export default defineConfig(({ mode }) => {
   return {
     build: {
       emptyOutDir: false,
-      target: `node${process.versions.node}`,
+      reportCompressedSize: false,
+      target: TARGET_BY_ELECTRON[0],
       watch: mode === 'development' ? {} : null,
       minify: mode !== 'development',
       rollupOptions: {
@@ -13,9 +14,8 @@ export default defineConfig(({ mode }) => {
         input: ['./preload/a.js'],
         output: {
           format: 'cjs',
-          entryFileNames: 'preload/[name].js',
           // inlineDynamicImports: true,
-          // entryFileNames: 'preload/[name].js',
+          entryFileNames: 'preload/[name].js',
           // chunkFileNames: 'preload/[name].js',
           // assetFileNames: 'preload/[name].[ext]',
         }
