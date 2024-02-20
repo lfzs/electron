@@ -1,18 +1,24 @@
-const { app, BrowserWindow } = require('electron')
-const { join } = require('path')
-const axios = require('axios')
+import { app, BrowserWindow } from 'electron'
+import { join } from 'node:path'
+import axios from 'axios'
+import { pick } from 'lodash-es'
+import { sleep } from './src/utils/index'
 axios.get('https://scrm.jianzhiweike.net/admin/common-permission/getPermissionByAcl').then(data => {
   console.info('data---------------------------')
-  console.info(data)
+  console.info(pick(data, 'data'))
+})
+
+sleep(1000).then(() => {
+  console.info('---------------------------')
 })
 
 app.whenReady().then(() => {
   const win = new BrowserWindow({
     webPreferences: {
-      preload: join(__dirname, './preload.js')
+      preload: join(__dirname, './preload/a.js')
     }
   })
-  app.isPackaged ? win.loadFile('index.html') : win.loadURL(process.env.VITE_SERVER_LOCAL)
+  app.isPackaged ? win.loadFile('./dist/index.html') : win.loadURL(process.env.VITE_SERVER_LOCAL)
 
   if (app.isPackaged) {
 
