@@ -3,7 +3,7 @@ import installExtension, { VUEJS_DEVTOOLS } from 'electron-devtools-installer'
 import { join } from 'node:path'
 import axios from 'axios'
 import { pick } from 'lodash-es'
-import { sleep } from './src/utils/index'
+import { sleep } from '@/utils'
 axios.get('https://scrm.jianzhiweike.net/admin/common-permission/getPermissionByAcl').then(data => {
   console.info('data---------------------------')
   console.info(pick(data, 'data'))

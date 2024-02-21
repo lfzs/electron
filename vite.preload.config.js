@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'node:path'
 import { external, TARGET_BY_ELECTRON } from './vite.main.config'
 
 export default defineConfig(({ mode }) => {
@@ -20,6 +21,11 @@ export default defineConfig(({ mode }) => {
           assetFileNames: 'preload/[name].[ext]',
         }
       }
+    },
+    resolve: {
+      alias: {
+        '@': resolve('./src'),
+      },
     },
     plugins: [
       mode === 'development' && {

@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import { builtinModules } from 'node:module'
+import { resolve } from 'node:path'
 import { spawn } from 'node:child_process'
 import electron from 'electron'
 import { dependencies, devDependencies } from './package.json'
@@ -38,6 +39,9 @@ export default defineConfig(({ mode }) => {
       },
     },
     resolve: {
+      alias: {
+        '@': resolve('./src'),
+      },
       mainFields: ['module', 'jsnext:main', 'jsnext'], // https://github.com/electron/forge/pull/3218
     },
     plugins: [
