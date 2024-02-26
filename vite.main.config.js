@@ -24,7 +24,7 @@ let [ps, startElectron] = [null, () => ps = spawn(electron, ['dist/index.cjs'], 
 export default defineConfig(({ mode }) => {
   return {
     define: {
-      'process.env.RENDERER_LOCAL_ADDRESS': JSON.stringify(process.viteServer.resolvedUrls.local[0]),
+      'process.env.RENDERER_LOCAL_ADDRESS': JSON.stringify(mode === 'development' ? process.viteServer.resolvedUrls.local[0] : ''),
     },
     build: {
       emptyOutDir: false,
