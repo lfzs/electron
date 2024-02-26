@@ -8,8 +8,7 @@ import { createServer, build } from 'vite'
   await server.listen()
   server.printUrls()
   server.bindCLIShortcuts({ print: true })
-  process.env.VITE_SERVER_LOCAL = server.resolvedUrls.local[0] // vite server 运行地址提供给子进程
-  process.viteServer = server // 提供给 preload script reload
+  process.viteServer = server // 提供子进程
 
   // 构建主进程和预加载脚本并 watch。强制修改为 dev 模式
   await build({ mode: 'development', configFile: join(process.cwd(), 'vite.preload.config.js') })

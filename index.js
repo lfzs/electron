@@ -20,7 +20,7 @@ app.whenReady().then(() => {
       preload: join(__dirname, './preload/a.js')
     }
   })
-  app.isPackaged ? win.loadFile('./dist/index.html') : win.loadURL(process.env.VITE_SERVER_LOCAL)
+  app.isPackaged ? win.loadFile('./dist/index.html') : win.loadURL(process.env.RENDERER_LOCAL_ADDRESS)
 
   if (app.isPackaged) {
 
