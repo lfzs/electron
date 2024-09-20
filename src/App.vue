@@ -1,5 +1,5 @@
 <template>
-<span @click="() => alert('click')">{{ app }}</span>
+<span @click="() => console.info('click')">{{ app }}</span>
 </template>
 <script setup>
 import axios from 'axios'

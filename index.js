@@ -8,7 +8,6 @@ axios.get('https://scrm.jianzhiweike.net/admin/common-permission/getPermissionBy
   console.info('data---------------------------')
   console.info(pick(data, 'data'))
 })
-
 sleep(1000).then(() => {
   console.info('---------------------------')
 })
@@ -20,10 +19,11 @@ app.whenReady().then(() => {
       preload: join(__dirname, './preload/a.js')
     }
   })
-  app.isPackaged ? win.loadFile('./dist/index.html') : win.loadURL(process.env.RENDERER_LOCAL_ADDRESS)
+  app.isPackaged ? win.loadFile(join(__dirname, './index.html')) : win.loadURL(process.env.RENDERER_LOCAL_ADDRESS)
 
   if (app.isPackaged) {
-
+    installExtension(VUEJS_DEVTOOLS) // TODO 打开 devtool 控制台抛错
+    win.webContents.openDevTools()
   } else { // dev 模式
     installExtension(VUEJS_DEVTOOLS) // TODO 打开 devtool 控制台抛错
     win.webContents.openDevTools()

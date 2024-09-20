@@ -17,9 +17,27 @@ import { build } from 'vite'
   await packager({
     // node_modules/@electron/packager/dist/types.d.ts
     dir: process.cwd(),
-    out: join(process.cwd(), 'dist/out'),
+    out: 'out',
     name: 'cx',
+    appVersion: '0.0.1',
     overwrite: true,
-    icon: join(process.cwd(), 'electron/static/mac.icns'),
+    icon: 'electron/static/mac.icns',
+    ignore: [
+      '/electron',
+      '/node_modules/.vite',
+      '/preload',
+      '/public',
+      '/scripts',
+      '/src',
+      '/.editorconfig',
+      '/.gitattributes',
+      '/.gitignore',
+      '/.npmrc',
+      '/index.html',
+      '/index.js',
+      '/jsconfig.json',
+      '/README.md',
+      '/vite.(main|preload|renderer).config.js',
+    ].map(path => new RegExp(`^${path}$`))
   })
 })()
