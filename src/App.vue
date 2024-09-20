@@ -1,4 +1,6 @@
-<template>{{ app }}</template>
+<template>
+<span @click="() => alert('click')">{{ app }}</span>
+</template>
 <script setup>
 import axios from 'axios'
 console.info(import.meta.env)

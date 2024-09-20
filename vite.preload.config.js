@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite'
 import { resolve } from 'node:path'
-import { external, TARGET_BY_ELECTRON } from './vite.main.config'
+import { external } from './vite.main.config'
 
 export default defineConfig(({ mode }) => {
   return {
     build: {
       emptyOutDir: false,
       reportCompressedSize: false,
-      target: TARGET_BY_ELECTRON[0],
+      target: 'esnext',
       watch: mode === 'development' ? {} : null,
       minify: mode !== 'development',
       rollupOptions: {
