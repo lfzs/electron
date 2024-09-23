@@ -13,7 +13,7 @@ import { build } from 'vite'
     build({ mode, configFile: join(process.cwd(), 'vite.preload.config.js') })
   ])
 
-  // 打包
+  // 打包（配合 electron-installer-dmg 可生成 .dmg 文件）
   await packager({
     // node_modules/@electron/packager/dist/types.d.ts
     dir: process.cwd(),
