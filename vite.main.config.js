@@ -3,13 +3,13 @@ import { builtinModules } from 'node:module'
 import { resolve } from 'node:path'
 import { spawn } from 'node:child_process'
 import electron from 'electron'
-import { dependencies } from './package.json'
+import pkg from './package.json'
 
 // 主进程和预加载脚本忽略 node 包和 dependencies 包（electron 和 package 提供了）
 export const external = [
   'electron',
   ...builtinModules.map(m => [m, `node:${m}`]).flat(),
-  ...Object.keys(dependencies || {})
+  ...Object.keys(pkg.dependencies || {})
 ]
 
 // 启动 electron
