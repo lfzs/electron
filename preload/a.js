@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { pick } from 'lodash-es'
 import { sleep } from '../src/utils'
 axios.get('https://scrm.jianzhiweike.net/admin/common-permission/getPermissionByAcl').then(data => {
   console.info('data---------------------------')

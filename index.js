@@ -5,11 +5,11 @@ import axios from 'axios'
 import { pick } from 'lodash-es'
 import { sleep } from '@/utils'
 axios.get('https://scrm.jianzhiweike.net/admin/common-permission/getPermissionByAcl').then(data => {
-  console.info('data---------------------------')
+  console.info('main process---------------------------')
   console.info(pick(data, 'data'))
 })
 sleep(1000).then(() => {
-  console.info('---------------------------')
+  console.info('main process---------------------------')
 })
 
 app.isPackaged && Menu.setApplicationMenu(null)
@@ -19,7 +19,7 @@ app.whenReady().then(() => {
       preload: join(__dirname, './preload/a.js')
     }
   })
-  app.isPackaged ? win.loadFile(join(__dirname, './index.html')) : win.loadURL(process.env.RENDERER_LOCAL_ADDRESS)
+  app.isPackaged ? win.loadFile(join(__dirname, './index.html')) : win.loadURL(process.env.RENDERER_LOCAL_ADDRESS) // RENDERER_LOCAL_ADDRESS http 会触发 csp warning，不影响线上
 
   if (app.isPackaged) {
     installExtension(VUEJS_DEVTOOLS) // TODO 打开 devtool 控制台抛错

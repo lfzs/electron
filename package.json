@@ -9,20 +9,20 @@
     "build:prod": "node ./scripts/build --mode=prod"
   },
   "engines": {
-    "node": ">=20.x",
+    "node": ">=23.x",
     "yarn": "1.x"
   },
   "license": "MIT",
   "devDependencies": {
-    "@electron/packager": "18.3.5",
-    "@vitejs/plugin-vue": "5.1.4",
-    "@vitejs/plugin-vue-jsx": "4.0.1",
-    "axios": "1.7.7",
-    "electron": "32.1.2",
-    "electron-devtools-installer": "3.2.0",
+    "@electron/packager": "18.3.6",
+    "@vitejs/plugin-vue": "6.0.0",
+    "@vitejs/plugin-vue-jsx": "5.0.0",
+    "axios": "1.10.0",
+    "electron": "37.0.0",
+    "electron-devtools-installer": "4.0.0",
     "lodash-es": "4.17.21",
     "minimist": "1.2.8",
-    "vite": "5.4.8",
-    "vue": "3.5.9"
+    "vite": "7.0.0",
+    "vue": "3.5.17"
   }
 }
